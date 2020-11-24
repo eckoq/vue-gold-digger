@@ -1,21 +1,15 @@
-# vue-admin-template
+# vue-gold-digger
 
-English | [简体中文](./README-zh.md)
-
-> A minimal admin with Element UI & axios & iconfont & permission control & lint
-
-**develop base on vue-admin-template
-
-**Live demo:** http://panjiachen.github.io/vue-admin-template
+> A minimal admin with Element UI & axios & iconfont & permission control & lint. **develop base on vue-admin-template**
 
 ## Build Setup
 
 ```bash
 # clone the project
-git clone https://github.com/PanJiaChen/vue-admin-template.git
+git clone https://github.com/eckoq/vue-gold-digger
 
 # enter the project directory
-cd vue-admin-template
+cd vue-gold-digger
 
 # install dependency
 npm install
