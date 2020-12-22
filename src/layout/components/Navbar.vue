@@ -6,7 +6,7 @@
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <el-tag :type="info" effect="plain">
+          <el-tag class="info" effect="plain">
             欢迎 {{ name }}
           </el-tag>
           <i class="el-icon-caret-bottom" />

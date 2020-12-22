@@ -69,6 +69,12 @@ export const constantRoutes = [
         meta: { title: '设备管理', icon: '' }
       },
       {
+        path: 'device_config',
+        name: 'device_config',
+        component: () => import('@/views/device_config/index'),
+        meta: { title: '设备配置', icon: '' }
+      },
+      {
         path: 'device_check',
         name: 'device_check',
         component: () => import('@/views/device_check/index'),
@@ -112,12 +118,6 @@ export const constantRoutes = [
     name: 'tools',
     meta: { title: '工具', icon: 'el-icon-s-tools' },
     children: [
-      {
-        path: 'tools_networkcfg',
-        name: 'tools_networkcfg',
-        component: () => import('@/views/tools_networkcfg/index'),
-        meta: { title: '网络配置', icon: '' }
-      },
       {
         path: 'tools_version_manager',
         name: 'tools_version_manager',
