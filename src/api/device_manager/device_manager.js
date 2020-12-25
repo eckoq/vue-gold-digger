@@ -23,3 +23,15 @@ export function get_device(data) {
     data
   })
 }
+
+export function get_netflow(data) {
+  return request({
+    url: '/gold-digger/device_manager/get_netflow',
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Credentials': true
+    },
+    data
+  })
+}

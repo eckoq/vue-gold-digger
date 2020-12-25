@@ -87,7 +87,7 @@
         </el-table>
         <el-pagination
           :current-page.sync="current_page"
-          :page-sizes="[15, 50, 100, 200,500, 1000]"
+          :page-sizes="[15, 50, 100, 200, 500, 1000]"
           :page-size="page_size"
           layout="total, sizes, prev, pager, next"
           :total="total"
@@ -99,7 +99,9 @@
       </div>
     </div>
     <div>
-      <el-dialog width="95%" title="设备详情" :visible.sync="show_device_info" />
+      <el-dialog width="95%" title="设备详情" :visible.sync="show_device_info">
+        <DeviceDetail :device="device_info" />
+      </el-dialog>
     </div>
   </el-card>
 </template>
@@ -109,9 +111,13 @@ import {
   get_query_configs, get_device
 } from '@/api/device_manager/device_manager'
 import { Loading } from 'element-ui'
+import DeviceDetail from './component/DeviceDetail'
 
 export default {
   name: 'DeviceManager',
+  components: {
+    DeviceDetail
+  },
   data() {
     return {
       query_param: {
@@ -136,7 +142,7 @@ export default {
       total: 0,
       show_big_textarea: false,
       show_device_info: false,
-      basic_info: null,
+      device_info: null,
       BigTextareaDivStyle: {
         left: '',
         top: '',
@@ -268,7 +274,7 @@ export default {
         var value = this.transform_cellValue(key, row[key])
         temp_row[key] = value
       }
-      this.basic_info = [temp_row]
+      this.device_info = temp_row
       this.show_device_info = true
     }
   }
