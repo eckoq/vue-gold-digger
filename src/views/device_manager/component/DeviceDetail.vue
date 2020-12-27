@@ -63,12 +63,6 @@ export default {
       chart_data: null
     }
   },
-  mounted() {
-    this.query_param.dev_uuid = this.device.dev_uuid
-    var today = new Date().toLocaleDateString().replace(/\//g, '-') + ' 00:00:00'
-    this.query_param.date_time = [today]
-    this.get_netflow()
-  },
   watch: {
     device: {
       handler(new_value, old_value) {
@@ -80,6 +74,12 @@ export default {
       },
       deep: true
     }
+  },
+  mounted() {
+    this.query_param.dev_uuid = this.device.dev_uuid
+    var today = new Date().toLocaleDateString().replace(/\//g, '-') + ' 00:00:00'
+    this.query_param.date_time = [today]
+    this.get_netflow()
   },
   methods: {
     handle_change(val) {
@@ -128,7 +128,7 @@ export default {
 
     print_netflow_chart() {
       for (const item of this.interfaces) {
-        if (!this.chart_data.hasOwnProperty(item.ifname)) {
+        if (!Object.prototype.hasOwnProperty.call(this.chart_data, item.ifname)) {
           continue
         }
 
