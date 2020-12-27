@@ -69,6 +69,18 @@ export default {
     this.query_param.date_time = [today]
     this.get_netflow()
   },
+  watch: {
+    device: {
+      handler(new_value, old_value) {
+        this.device = new_value
+        this.query_param.dev_uuid = this.device.dev_uuid
+        var today = new Date().toLocaleDateString().replace(/\//g, '-') + ' 00:00:00'
+        this.query_param.date_time = [today]
+        this.get_netflow()
+      },
+      deep: true
+    }
+  },
   methods: {
     handle_change(val) {
     },
@@ -116,6 +128,10 @@ export default {
 
     print_netflow_chart() {
       for (const item of this.interfaces) {
+        if (!this.chart_data.hasOwnProperty(item.ifname)) {
+          continue
+        }
+
         var x_data = this.chart_data[item.ifname].map(function(item) {
           return item[0]
         })
