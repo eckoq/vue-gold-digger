@@ -134,7 +134,9 @@ export default {
         'isp': '运营商',
         'province': '省份',
         'city': '城市',
-        'link_upload_speed': '链路上行带宽(kbps)'
+        'link_upload_speed': '链路上行带宽(kbps)',
+        'zone': '区域',
+        'customer': '用户'
       },
       device_table: null,
       current_page: 1,
